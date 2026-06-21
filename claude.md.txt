@@ -1,0 +1,49 @@
+# Konteks Project: Website Ajakan Berwisata
+
+## Deskripsi
+Ini adalah aplikasi web interaktif yang berisi ajakan untuk pergi berwisata. Aplikasi ini memiliki alur interaktif mulai dari membuka amplop, memilih jawaban (dengan trik tombol menghindar), memilih destinasi, mengisi detail, hingga merekap dan menyimpan hasil. Target saya client Bernama intan
+
+## Tech Stack
+- Framework: React (menggunakan Vite)
+- Styling: Tailwind CSS
+- Interaktivitas & Animasi: Framer Motion (untuk animasi amplop dan tombol kabur)
+- Screenshot: html2canvas (untuk fitur capture layar)
+- Icons: lucide-react
+
+## Alur Aplikasi (Step-by-Step Flow)
+
+1. **Fase 1: Halaman Utama (Amplop)**
+   - UI menampilkan sebuah Amplop tertutup di tengah layar.
+   - Ada teks instruksi: "Buka pesan ini dari saya".
+   - Ketika amplop diklik, amplop terbuka dan masuk ke Fase 2.
+
+2. **Fase 2: Pertanyaan Ajakan**
+   - Muncul teks: "Apakah kamu ingin bermain bersama saya?"
+   - Ada 2 tombol: "Ya" dan "Tidak".
+   - **Trik Tombol "Tidak":** Ketika kursor mouse mendekati (hover) tombol "Tidak", tombol tersebut harus berpindah posisi secara acak (kabur) sehingga user tidak mungkin bisa mengkliknya.
+   - User dipaksa untuk klik tombol "Ya".
+
+3. **Fase 3: Ucapan Terima Kasih & Pilihan Destinasi**
+   - Setelah klik "Ya", muncul pesan: "Terima kasih telah menerima permintaan saya!"
+   - Muncul 2 Card pilihan destinasi:
+     - Card 1: "Gunung Pangradinan" (sertakan placeholder gambar gunung/alam).
+     - Card 2: "Pantai Batu Karas" (sertakan placeholder gambar pantai).
+   - User hanya bisa memilih salah satu. Setelah diklik, card yang dipilih akan di-highlight.
+
+4. **Fase 4: Form Detail**
+   - Setelah destinasi dipilih, muncul form di bawahnya.
+   - Input 1: Tanggal (Date picker).
+   - Input 2: Pesan untuk pengirim (Textarea).
+   - Tombol "Selesai".
+
+5. **Fase 5: Rekap & Screenshot**
+   - Setelah klik "Selesai", layar akan membersihkan UI sebelumnya dan hanya menampilkan "Kartu Rekapitulasi".
+   - Isi rekap: Destinasi yang dipilih, Tanggal, dan Pesan dari target.
+   - Di bawah kartu rekap, sediakan tombol "Simpan sebagai Gambar" (Screenshot).
+   - Ketika tombol screenshot diklik, gunakan library `html2canvas` untuk mengubah elemen Kartu Rekapitulasi menjadi gambar (.png atau .jpeg) dan otomatis terunduh ke device target.
+
+## Aturan Penulisan Kode
+- Gunakan bahasa Indonesia untuk semua teks UI.
+- Buat desain yang bersih, minimalis, dan *mobile-responsive* menggunakan Tailwind CSS.
+- Pisahkan komponen React jika file sudah terlalu panjang (misal: `Envelope.jsx`, `DestinationCard.jsx`, `Summary.jsx`).
+- Gunakan state management bawaan React (`useState`, `useEffect`).
